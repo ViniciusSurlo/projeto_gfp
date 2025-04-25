@@ -11,7 +11,7 @@ const Estilos = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#706ef9', // início do degradê
+    backgroundColor: '#000', // início do degradê
   },
   loginContainer: {
     width: '85%',

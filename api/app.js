@@ -19,19 +19,19 @@ app.get('/', (req, res) => {
 
 // Rotas usuarios
 app.post('/usuarios', rotasUsuarios.Novousuario)
-app.get('/usuarios',rotasUsuarios.Listar)
-app.get('/usuarios/:id', rotasUsuarios.ListarporID)
+app.get('/usuarios', autenticarToken, rotasUsuarios.Listar)
+app.get('/usuarios/:id', autenticarToken, rotasUsuarios.ListarporID)
 app.put('/usuarios/:id', rotasUsuarios.AtualizartodosCampos)
-app.delete('/usuarios/:id',  rotasUsuarios.Deletar)
-app.patch('/usuarios/:id', rotasUsuarios.Atualizar)
-app.post('/login', rotasUsuarios.Login)
+app.delete('/usuarios/:id', autenticarToken, rotasUsuarios.Deletar)
+app.patch('/usuarios/:id', autenticarToken, rotasUsuarios.Atualizar)
+app.post('/usuarios/login', rotasUsuarios.login)
 
 // Rotas categorias
 app.post('/categorias',  rotasCategorias.novaCategoria)
-app.get('/categorias', rotasCategorias.listarTodas)
-app.delete('/categorias/:id', rotasCategorias.Deletar)
+app.get('/categorias', autenticarToken, rotasCategorias.listarTodas)
+app.delete('/categorias/:id', autenticarToken, rotasCategorias.Deletar)
 app.put('/categorias/:id', rotasCategorias.atualizarTodosCampos)
-app.patch('/categorias/:id', rotasCategorias.Atualizar)
+app.patch('/categorias/:id', autenticarToken, rotasCategorias.Atualizar)
 app.get('/categorias/:id', rotasCategorias.ListarporID)
 // Rotas subcategorias
 app.post('/subcategorias', rotasSubcategorias.novaSubCategoria)
