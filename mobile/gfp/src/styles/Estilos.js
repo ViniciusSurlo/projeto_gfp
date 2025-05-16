@@ -1,86 +1,56 @@
 import { StyleSheet } from 'react-native';
 
-export const corPrincipal = '#3db1ff';
+export const corPrincipal = '#00C896';
 export const corSecundaria = '#00c3ff';
 export const corTextos = '#1a1a1a';
 export const corFundo = '#f5f9ff';
 
 const Estilos = StyleSheet.create({
-  conteudo: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: corFundo,
+  container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#f8f8f8',
   },
-  loginContainer: {
-    width: '90%',
-    backgroundColor: '#ffffff',
-    padding: 30,
-    borderRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 4,
+  ItemLista: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+      borderRadius: 12,
+      padding: 15,
+      marginVertical: 6,
+      marginHorizontal: 8,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.08,
+      shadowRadius: 4,
+      elevation: 2,
   },
-  iconContainer: {
-    alignItems: 'center',
-    marginBottom: 20,
+  imagemLista: {
+      width: 48,
+      height: 48,
+      borderRadius: 24,
+      marginRight: 16,
+      backgroundColor: '#e0e0e0',
   },
-  input: {
-    backgroundColor: '#f0f4f7',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 15,
-    color: '#000',
-    borderWidth: 1,
-    borderColor: '#dce3ea',
+  textContainer: {
+      flex: 1,
+      justifyContent: 'center',
   },
-  label: {
-    color: '#333',
-    marginBottom: 5,
-    fontWeight: '600',
+  icon: {
+      marginLeft: 10,
   },
-  button: {
-    backgroundColor: corPrincipal,
-    padding: 15,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 10,
+  tipoConta: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#333',
   },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
+  nomeLista: {
+      fontSize: 14,
+      color: '#666',
   },
-  secondaryButton: {
-    backgroundColor: '#eaf6ff',
-    padding: 15,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  secondaryButtonText: {
-    color: corPrincipal,
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  forgotPassword: {
-    color: corPrincipal,
-    marginTop: 5,
-    textAlign: 'right',
-    textDecorationLine: 'underline',
-    fontSize: 13,
-  },
-  bottomText: {
-    marginTop: 20,
-    textAlign: 'center',
-    color: '#777',
-  },
-  linkText: {
-    color: corSecundaria,
-    fontWeight: '600',
-  },
-});
+
+})
+
 
 export default Estilos;

@@ -2,11 +2,11 @@ import { useNavigate, Link } from "react-router-dom";
 // import { useState } from "react";
 import { enderecoServidor } from "../utils";
 import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export default function Login() {
   const navigate = useNavigate();
   const handleSubmit = () => {
-    navigate("principal");
+    navigate("/principal");
   };
   const [senhaVisivel, setSenhaVisivel] = useState(false);
   const [mensagem, setMensagem] = useState("");
@@ -15,17 +15,15 @@ export default function Login() {
   const [lembrar, setlembrar] = useState(false);
 
   useEffect(() => {
-    const buscarUsuarioLogado = async () => {
+    const buscarUsuarioLogado =  () => {
       console.log('buscando usuario logado');
-      const UsuarioLogado = await AsyncStorage.getItem('UsuarioLogado');
+      const UsuarioLogado = localStorage.getItem('UsuarioLogado');
       console.log(UsuarioLogado);
       
       if (UsuarioLogado) {
         const usuario = JSON.parse(UsuarioLogado)
-        console.log(usuario);
-        
         if (usuario.lembrar == true) {
-          navigate('MenuPrincipal');
+          navigate('/principal');
         }
       }
     }
@@ -42,7 +40,7 @@ export default function Login() {
       // Autenticando utilizando a API de backend com o fetch
       const resposta = await fetch(`${enderecoServidor}/usuarios/login`, {
         method: "POST",
-        headers: {"content-type": "application/json", "athorization": "Bearer " + localStorage.getItem('token')},
+        headers: {"content-type": "application/json", "authorization": "Bearer " + localStorage.getItem('token')},
         body: JSON.stringify({
             email: email,
             senha: senha
@@ -54,7 +52,7 @@ export default function Login() {
         setMensagem('Login bem-sucedido! ✅')
         // Ou navegar para outra página
         handleSubmit()
-        localStorage.setItem('UsuarioLogado', JSON.stringify(...dados, lembrar))
+        localStorage.setItem('UsuarioLogado', JSON.stringify(...dados, lembrar ))
       } else {
         setMensagem('Email ou senha incorretos ❌')
         throw new Error('Email ou senha incorretos ❌')

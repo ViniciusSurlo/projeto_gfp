@@ -45,9 +45,9 @@ app.put('/subcategorias/:id', rotasSubcategorias.atualizartodosCampos)
 app.patch('/subcategorias/:id', rotasSubcategorias.Atualizar)
 
 // Rotas contas
+app.get('/contas', autenticarToken, RotasContas.ListarTodas)
 app.get('/contas/filtrarNome', RotasContas.filtrarNome)
 app.post('/contas', RotasContas.NovasContas)
-app.get('/contas', RotasContas.ListarTodas)
 app.get('/contas/:id', RotasContas.BuscarId)
 app.patch('/contas/:id', RotasContas.AtualizarContas)
 app.put('/contas/:id', RotasContas.atualizarTodosCampos)
@@ -63,7 +63,7 @@ app.put('/transacoes/:id', RotasTransacoes.atualizarTodosCampos)
 app.patch('/transacoes/:id', RotasTransacoes.AtualizarTransacao)
 app.get('/transacoes/:id', RotasTransacoes.listarporId)
 app.delete('/transacoes/:id', RotasTransacoes.deletarTransacao)
-const porta = 3001;
+const porta = 3000;
 app.listen(porta, () =>{
     console.log(`Api  http://localhost:${porta}`);
 })
