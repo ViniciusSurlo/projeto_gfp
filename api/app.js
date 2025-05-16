@@ -36,6 +36,7 @@ app.patch('/categorias/:id', autenticarToken, rotasCategorias.Atualizar)
 app.get('/categorias/:id', rotasCategorias.ListarporID)
 
 // Rotas subcategorias
+app.get('/subcategorias', rotasSubcategorias.filtrarNome)
 app.post('/subcategorias', rotasSubcategorias.novaSubCategoria)
 app.delete('/subcategorias/:id', rotasSubcategorias.deletarSubcategoria)
 app.get('/subcategorias', rotasSubcategorias.listarSubcategorias)
