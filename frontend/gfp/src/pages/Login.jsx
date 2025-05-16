@@ -1,6 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import { enderecoServidor } from "../utils";
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function Login() {
   const navigate = useNavigate();
   const handleSubmit = () => {
@@ -10,6 +12,25 @@ export default function Login() {
   const [mensagem, setMensagem] = useState("");
   const [senha, setSenha] = useState("");
   const [email, setEmail] = useState("");
+  const [lembrar, setlembrar] = useState(false);
+
+  useEffect(() => {
+    const buscarUsuarioLogado = async () => {
+      console.log('buscando usuario logado');
+      const UsuarioLogado = await AsyncStorage.getItem('UsuarioLogado');
+      console.log(UsuarioLogado);
+      
+      if (UsuarioLogado) {
+        const usuario = JSON.parse(UsuarioLogado)
+        console.log(usuario);
+        
+        if (usuario.lembrar == true) {
+          navigate('MenuPrincipal');
+        }
+      }
+    }
+    buscarUsuarioLogado();
+  }, [])
 
   async function botaoEntrar(e) {
     e.preventDefault();
@@ -33,7 +54,7 @@ export default function Login() {
         setMensagem('Login bem-sucedido! ✅')
         // Ou navegar para outra página
         handleSubmit()
-        localStorage.setItem('UsuarioLogado', JSON.stringify(dados))
+        localStorage.setItem('UsuarioLogado', JSON.stringify(...dados, lembrar))
       } else {
         setMensagem('Email ou senha incorretos ❌')
         throw new Error('Email ou senha incorretos ❌')
@@ -84,10 +105,20 @@ export default function Login() {
                 Forgot Password?
               </Link> */}
             </div>
+            <div>
 
+            </div>
             <button type="submit" style={styles.button}>
               Entrar
             </button>
+
+            <div style={{display: "flex", alignItems: "center", marginTop: "1rem"}}>
+              <input type="checkbox" style={{marginRight: "5px"}}
+                checked={lembrar} onChange={(e) => setlembrar(e.target.checked)}/>
+              <label htmlFor="">Lembrar-me</label>
+            </div>
+
+
           </form>
         </div>
         <div style={styles.imageBox}>

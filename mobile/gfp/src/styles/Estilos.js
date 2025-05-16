@@ -1,66 +1,85 @@
 import { StyleSheet } from 'react-native';
 
-export const corPrincipal = '#59b6ff';
-export const corSecundaria = '#706ef9';
-export const corTextos = '#f2f2f2';
-export const corFundo = '#0d0d0d';
-export const corFundo2 = '#262626';
+export const corPrincipal = '#3db1ff';
+export const corSecundaria = '#00c3ff';
+export const corTextos = '#1a1a1a';
+export const corFundo = '#f5f9ff';
 
 const Estilos = StyleSheet.create({
   conteudo: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000', // início do degradê
+    backgroundColor: corFundo,
   },
   loginContainer: {
-    width: '85%',
-    backgroundColor: '#ffffff10',
-    padding: 20,
+    width: '90%',
+    backgroundColor: '#ffffff',
+    padding: 30,
     borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 4,
   },
   iconContainer: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 20,
   },
   input: {
-    backgroundColor: '#ffffff20',
-    borderRadius: 10,
-    padding: 12,
+    backgroundColor: '#f0f4f7',
+    borderRadius: 12,
+    padding: 14,
     marginBottom: 15,
-    color: corTextos,
+    color: '#000',
     borderWidth: 1,
-    borderColor: '#ffffff30',
+    borderColor: '#dce3ea',
   },
   label: {
-    color: corTextos,
+    color: '#333',
     marginBottom: 5,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   button: {
-    backgroundColor: '#ff4b2b',
+    backgroundColor: corPrincipal,
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
     marginTop: 10,
   },
   buttonText: {
-    color: corTextos,
+    color: '#fff',
     fontWeight: 'bold',
+    fontSize: 16,
   },
-  rememberContainer: {
-    flexDirection: 'row',
+  secondaryButton: {
+    backgroundColor: '#eaf6ff',
+    padding: 15,
+    borderRadius: 12,
     alignItems: 'center',
     marginTop: 10,
   },
-  rememberText: {
-    color: corTextos,
-    marginLeft: 8,
+  secondaryButtonText: {
+    color: corPrincipal,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   forgotPassword: {
-    color: '#ccc',
-    marginLeft: 'auto',
+    color: corPrincipal,
+    marginTop: 5,
+    textAlign: 'right',
     textDecorationLine: 'underline',
+    fontSize: 13,
+  },
+  bottomText: {
+    marginTop: 20,
+    textAlign: 'center',
+    color: '#777',
+  },
+  linkText: {
+    color: corSecundaria,
+    fontWeight: '600',
   },
 });
 

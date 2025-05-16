@@ -118,6 +118,27 @@ join categorias c on s.id_categoria = c.id_categoria`);
             return res.status(500).json({error: "Erro ao atualizar dados da subcategoria", error: error.message});
         }
     }
+
+    static async filtrarNome(req, res){
+        // O valor seá enviado por parametro na URL, deve ser enviado dessa maneira
+        // ?tipo_transacao=entrada 
+        const { nome } = req.query;
+        
+        try{
+            const query = `
+            SELECT * FROM subcategorias
+            WHERE nome LIKE $1 AND ativo = true
+            ORDER by id_subcategoria DESC
+            `
+            const valores = [nome]
+            const resposta = await BD.query(query, valores)
+            return res.status(200).json(resposta.rows)
+        } catch(error){
+            console.error('Erro ao filtrar subcategorias', error);
+            res.status(500).json({message : "Erro ao filtrar subcategorias", error: error.message})
+            
+        }
+    }
 }
 
 export default rotasSubcategorias;
