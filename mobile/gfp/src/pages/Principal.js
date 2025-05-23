@@ -1,6 +1,6 @@
 
 // AsyncStorage.removeItem('UsuarioLogado')
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function Principal({ navigation }) {
@@ -28,10 +28,14 @@ export default function Principal({ navigation }) {
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-        <Text style={{fontSize:20, marginLeft:10}}>Usuário: {usuario?.nome}</Text>
-        <Button title='Sair' onPress={botaoLogout}/>
+        {/* <Text style={{}}>Bem vindo! {usuario?.nome}</Text> */}
+        <Text style={{fontSize:20, marginLeft:10, marginTop: 20, fontWeight: 'bold'}}>Bem vindo! {usuario?.nome}</Text>
+        {/* <Button title='Sair' onPress={botaoLogout}/> */}
+        <TouchableOpacity onPress={botaoLogout} style={{marginRight: 10, backgroundColor: '#00C896', padding: 10, borderRadius: 10, marginTop: 20, width: 70, alignItems: 'center'}}>
+          <Text style={{fontSize: 20, color: "#fff", fontWeight: 'bold'}}>Sair</Text>
+        </TouchableOpacity>
       </View>
-      <Text>Principal</Text>
+      <Text style={{textAlign: 'center', marginTop: 40, fontWeight: 'bold', fontSize: 20}}>Principal</Text>
     </View>
   );
 

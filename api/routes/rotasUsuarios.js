@@ -138,7 +138,7 @@ class rotasUsuarios {
                     email: usuario.email,
                 },
                 SECRET_KEY,
-                { expiresIn: "1h" }
+                // { expiresIn: "1h" }
             );
 
             return res

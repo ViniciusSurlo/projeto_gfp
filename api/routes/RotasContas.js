@@ -84,10 +84,10 @@ class RotasContas {
     }
     static async atualizarTodosCampos(req, res) {
         const { id } = req.params;
-        const { nome, tipo_conta, saldo, ativo, conta_padrao } = req.body;
+        const { nome, tipo_conta, saldo, conta_padrao } = req.body;
         try {
-            const Contas = await BD.query(`UPDATE contas SET nome = $1, tipo_conta = $2, saldo = $3, ativo = $4, conta_padrao = $5 WHERE id_conta = $6 RETURNING *`, 
-            [nome, tipo_conta, saldo, ativo, conta_padrao, id]);
+            const Contas = await BD.query(`UPDATE contas SET nome = $1, tipo_conta = $2, saldo = $3, conta_padrao = $4 WHERE id_conta = $5 RETURNING *`, 
+            [nome, tipo_conta, saldo, conta_padrao, id]);
             return res.status(200).json(Contas.rows[0]);
         }
         catch (error) {

@@ -6,6 +6,65 @@ export const corTextos = '#1a1a1a';
 export const corFundo = '#f5f9ff';
 
 const Estilos = StyleSheet.create({
+     conteudo: {
+    flex: 1,
+    backgroundColor: corFundo,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  loginContainer: {
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 20,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 5,
+  },
+  label: {
+    fontSize: 16,
+    color: corTextos,
+    marginBottom: 5,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 15,
+    fontSize: 16,
+    backgroundColor: '#f0f0f0',
+  },
+  button: {
+    backgroundColor: corPrincipal,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  forgotPassword: {
+    textAlign: 'right',
+    color: corSecundaria,
+    marginBottom: 10,
+  },
+  bottomText: {
+    marginTop: 20,
+    textAlign: 'center',
+    color: '#555',
+  },
+  linkText: {
+    color: corSecundaria,
+    fontWeight: 'bold',
+  },
   container: {
       flex: 1,
       justifyContent: 'center',
@@ -49,8 +108,17 @@ const Estilos = StyleSheet.create({
       fontSize: 14,
       color: '#666',
   },
-
-})
+  inputCad: {
+    marginTop: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: '#fff',
+  }
+}
+)
 
 
 export default Estilos;

@@ -6,6 +6,9 @@ import rotasCategorias from './routes/rotasCategorias.js';
 import rotasSubcategorias from './routes/rotasSubcategorias.js';
 import RotasContas from './routes/RotasContas.js';
 import RotasTransacoes from './routes/RotasTransacoes.js';
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from './swagger.js';
+
 const app = express();
 
 testarConexao()
@@ -13,8 +16,10 @@ testarConexao()
 app.use(cors())
 app.use(express.json())
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
 app.get('/', (req, res) => {
-    res.send('API funcionando')
+    res.redirect('/api-docs')
 })
 
 // Rotas usuarios
